@@ -1,6 +1,8 @@
 // Main viewmodel class
-define(['knockout', 'knockout-validation', 'jquery'], function (ko, koval, $) {
+define(['knockout', 'knockout-validation', 'jquery', 'app/api'], function (ko, koval, $, APIClass) {
     return function ViewModelClass() {
+        this.api = null;
+
         this.lingQAPIKey = ko.observable("")
             .extend({
                 throttle: 500,
@@ -17,10 +19,25 @@ define(['knockout', 'knockout-validation', 'jquery'], function (ko, koval, $) {
 
         this.loading_Languages = ko.observable(false);
 
-        this.lingQAPIKey.subscribe(function (value) {
-            if (typeof this.lingQAPIKey.isValid !== 'undefined' && this.lingQAPIKey.isValid()) {
-                this.loading_Languages(true);
+        this.handleLoadLanguages = function(data)
+        {
+            this.loading_Languages(true);
+            var languages = [];
+            for (var i = 0; i < data.length; i++)
+            {
+                languages.push(data.title);
 
+            }
+            this.languages(languages);
+
+        };
+
+
+        this.lingQAPIKey.subscribe(function (value) {
+            if (typeof this.lingQAPIKey.isValid !== 'undefined' && this.lingQAPIKey.isValid() && !this.loading_Languages())  {
+                this.loading_Languages(true);
+                this.api = new APIClass(this.lingQAPIKey());
+                this.api.GetLanguages($.proxy(this.handleLoadLanguages,this));
 
             }
 
