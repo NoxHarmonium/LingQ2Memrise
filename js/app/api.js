@@ -10,7 +10,7 @@ define(['jquery'], function ($) {
                 type: "GET",
                 url: url,
                 contentType: "application/json",
-                dataType: "jsonp",
+                dataType: "json",
                 beforeSend: function(jqXHR, settings){
                     jqXHR.setRequestHeader("Authorization", "Token " + self.key);
                 },
@@ -24,7 +24,6 @@ define(['jquery'], function ($) {
         {
             var self = this;
             self._apiCall(self.URL_GET_LANG, callback);
-
 
         };
 
