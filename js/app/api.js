@@ -9,7 +9,7 @@ define(['jquery'], function ($) {
             $.ajax({
                 type: "GET",
                 url: url,
-                contentType: "application/json"
+                contentType: "application/json",
                 dataType: "jsonp",
                 beforeSend: function(jqXHR, settings){
                     jqXHR.setRequestHeader("Authorization", "Token " + self.key);
