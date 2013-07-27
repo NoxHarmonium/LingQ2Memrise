@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="ko" type="javaScript">
+    <properties>
+      <option name="frameworkName" value="Knockout" />
+      <option name="frameworkVersion" value="2.3.0" />
+      <sourceFilesUrls>
+        <item url="file://$USER_HOME$/Downloads/knockout.amd.d.ts" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/js/lib/knockout-2.3.0.js" />
+      <root url="file://$USER_HOME$/Downloads/knockout.amd.d.ts" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

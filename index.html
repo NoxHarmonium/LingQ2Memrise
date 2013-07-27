@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LingQ to Memrise</title>
+    <link rel="stylesheet" href="css/global.css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css"/>
+
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="#">LingQ to Memrise</a>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <!--<li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>-->
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+
+
+</div>
+
+<div class="container">
+    <div class="row">
+
+        <div class="span8">
+            <h1>LingQ to Memrise</h1>
+
+            <p>LingQ is a great website for compiling lists of words that you need to learn.
+                Memrise is an another website that excels in helping you memorise lists of words.
+                Wouldn't it be great if you could have the best of both worlds?
+                Unfortunately Memrise doesn't provide an API for importing lists of words automatically but it does
+                provide a section where you can paste in a spreadsheet to add words to lessons in bulk. This website
+                aims to help out a little bit by using the amazing LingQ API to format lists of LingQs in a way that you
+                can paste them into Memrise and learn them.
+            </p>
+        </div>
+
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="span12">
+            <h3>Step 1.</h3>
+
+            <form class="form-horizontal well">
+                <fieldset>
+
+                    <div class="control-group" data-bind="attr: { 'class': lingQAPIKeyClass } ">
+                        <label class="control-label" for="txtLingQKey">LingQ API Key</label>
+
+                        <div class="controls">
+                            <input id="txtLingQKey" class="input-xlarge"
+                                   data-bind="valueUpdate:'afterkeydown', validationOptions: { errorMessageClass: 'help-inline error' }, value: lingQAPIKey"
+                                   type="text" maxlength="40" required pattern="[a-z0-9]{40}">
+                            <span class='help-inline'>
+                                  <img src="img/spinner.gif" alt="Loading indicator" style="display: none;"
+                                       data-bind="visible: loading_Languages"/>
+
+                            </span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label for="selLanguage" class="control-label">Language
+
+                        </label>
+
+                        <div class="controls">
+                            <select disabled id="selLanguage"
+                                    data-bind="enable: languagesEnabled, value: selectedLanguage, options: languages">
+                            </select>
+
+                        </div>
+                    </div>
+
+
+                </fieldset>
+            </form>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+</body>
+<script type="text/javascript" src="js/require.js" data-main="js/init"></script>
+
+</html>
